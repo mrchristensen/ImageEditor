@@ -5,7 +5,10 @@ public class Transformer {
     public PPMImage grayscale(PPMImage myImage) {
         for (int i = 0; i < myImage.height; i++) {
             for (int j = 0; j < myImage.width; j++) {
-
+                int grayscaleAverage = (myImage.pixels[j][i].red + myImage.pixels[j][i].green + myImage.pixels[j][i].blue) / 3;
+                myImage.pixels[j][i].red = grayscaleAverage;
+                myImage.pixels[j][i].green = grayscaleAverage;
+                myImage.pixels[j][i].blue = grayscaleAverage;
             }
         }
 
