@@ -27,22 +27,29 @@ public class ImageEditor {
         if (!myFile.exists()) {
             System.out.println("File not created successfully");
         }
-//        else {
-//            usingFileWriter(myFile, outputFileName);
-//        }
 
         PPMImage myImage = new ReadClass().processFile(myFile); //Read
 
-        //Transform
+        System.out.println(transform);
+        switch(transform) { //Transform
+            case "grayscale":
+                myImage = new Transformer().grayscale(myImage);
+                break;
+            case "invert":
+                myImage = new Transformer().invert(myImage);
+                break;
+            case "emboss":
+                myImage = new Transformer().emboss(myImage);
+                break;
+            case "motionblur":
+                myImage = new Transformer().motionBlur(myImage, blurLength);
+                break;
+            default:
+                System.out.println("Error: transform not recognized");
+        }
 
         new WriteClass().writeImage(outputFileName, myImage); //Write
-    }
-
-
-    public static void usingFileWriter(File myFile, String outputFileName) throws IOException {
-        FileWriter fileWriter = new FileWriter(outputFileName);
-        fileWriter.write(String.valueOf(myFile));
-        fileWriter.close();
+        System.out.println("Finished write");
     }
 
 }

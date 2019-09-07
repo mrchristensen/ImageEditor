@@ -14,11 +14,11 @@ public class ReadClass{
         String magicNumber = scanner.next(); //P3
         int width = Integer.parseInt(scanner.next()); //How many pixels wide
         int height = Integer.parseInt(scanner.next()); //How many pixels tall
-        String maxColor = scanner.next(); //255
+        int maxColor = Integer.parseInt(scanner.next()); //255
 
         System.out.println(magicNumber + width + height + maxColor);
 
-        PPMImage myImage = new PPMImage(width, height); //Create a new PPM object with the right width and everything
+        PPMImage myImage = new PPMImage(magicNumber, width, height, maxColor); //Create a new PPM object with the right width and everything
 
         int pixels = width * height * 3;
 
