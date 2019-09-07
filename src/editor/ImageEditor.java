@@ -34,7 +34,8 @@ public class ImageEditor {
         PPMImage myImage = new ReadClass().processFile(myFile); //Read
 
         //Transform
-        //Write
+
+        new WriteClass().writeImage(outputFileName, myImage); //Write
     }
 
 
