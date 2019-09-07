@@ -4,9 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class ReadClass{
+class ReadClass {
 
-    public PPMImage processFile(File myFile) throws IOException {
+    PPMImage processFile(File myFile) throws IOException {
 
         Scanner scanner = new Scanner(myFile);
         scanner.useDelimiter("((#[^\\n]*\\n)|(\\s+))+");

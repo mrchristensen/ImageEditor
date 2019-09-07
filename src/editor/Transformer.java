@@ -1,8 +1,8 @@
 package editor;
 
-public class Transformer {
+class Transformer {
 
-    public PPMImage grayscale(PPMImage myImage) {
+    PPMImage grayscale(PPMImage myImage) {
         for (int i = 0; i < myImage.height; i++) {
             for (int j = 0; j < myImage.width; j++) {
                 int grayscaleAverage = (myImage.pixels[j][i].red + myImage.pixels[j][i].green + myImage.pixels[j][i].blue) / 3;
@@ -15,7 +15,7 @@ public class Transformer {
         return myImage;
     }
 
-    public PPMImage invert (PPMImage myImage) {
+    PPMImage invert(PPMImage myImage) {
         for (int i = 0; i < myImage.height; i++) {
             for (int j = 0; j < myImage.width; j++) {
                 myImage.pixels[j][i].red = myImage.maxColor - myImage.pixels[j][i].red;
@@ -28,7 +28,7 @@ public class Transformer {
         return myImage;
     }
 
-    public PPMImage emboss(PPMImage myImage) {
+    PPMImage emboss(PPMImage myImage) {
         for (int i = myImage.height - 1; i >= 0; i--) { //Starts are bottom right corner of the "pixel array"/image
             for (int j = myImage.width - 1; j >= 0; j--) {
                 int v;
@@ -58,7 +58,7 @@ public class Transformer {
         return myImage;
     }
 
-    public PPMImage motionBlur(PPMImage myImage, int blurLength) {
+    PPMImage motionBlur(PPMImage myImage, int blurLength) {
         for (int i = 0; i < myImage.height; i++) {
             for (int j = 0; j < myImage.width; j++) {
                 int numColorValues = 0;
@@ -86,19 +86,19 @@ public class Transformer {
     }
 
     private int findMaxDiff(int x, int y, int z) {
-        if(Math.abs(x) == Math.abs(y) && Math.abs(y) == Math.abs(z)){ //If they are all the same then return the first (red) value
+        if(Math.abs(x) == Math.abs(y) && Math.abs(y) == Math.abs(z)) { //If they are all the same then return the first (red) value
             return x;
         } else if(Math.abs(x) > Math.abs(y) && Math.abs(x) > Math.abs(z)) { //If x is biggest
             return x;
         } else if(Math.abs(y) > Math.abs(x) && Math.abs(y) > Math.abs(z)) { //If y is biggest
             return y;
-        } else if(Math.abs(z) > Math.abs(x) && Math.abs(z) > Math.abs(y)){ //If z is biggest
+        } else if(Math.abs(z) > Math.abs(x) && Math.abs(z) > Math.abs(y)) { //If z is biggest
             return z;
-        } else if(Math.abs(x) > Math.abs(z) && Math.abs(y) > Math.abs(z)){ //If x and y are bigger than z, take x
+        } else if(Math.abs(x) > Math.abs(z) && Math.abs(y) > Math.abs(z)) { //If x and y are bigger than z, take x
             return x;
-        } else if (Math.abs(x) > Math.abs(y) && Math.abs(z) > Math.abs(y)){ //If x and z are bigger than y, take x
+        } else if (Math.abs(x) > Math.abs(y) && Math.abs(z) > Math.abs(y)) { //If x and z are bigger than y, take x
             return x;
-        } else if (Math.abs(y) > Math.abs(x) && Math.abs(z) > Math.abs(x)){ //If y and z are bigger than x, take y
+        } else if (Math.abs(y) > Math.abs(x) && Math.abs(z) > Math.abs(x)) { //If y and z are bigger than x, take y
             return y;
         } else{
             System.out.println("findMaxDiff function in incomplete in it's cases\nx: " + Math.abs(x) + ", y: " + Math.abs(y) + ", z: " + Math.abs(z));

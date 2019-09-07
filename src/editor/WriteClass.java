@@ -4,15 +4,15 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class WriteClass {
+class WriteClass {
 
-    public void writeImage(String filename, PPMImage myImage) throws FileNotFoundException, IOException {
+    void writeImage(String filename, PPMImage myImage) throws IOException {
         System.out.println("Begin gathering data into string");
         StringBuilder dataStream = new StringBuilder();
-         dataStream.append("P3\n" + myImage.width + "\n" + myImage.height + "\n255\n");
+        dataStream.append("P3\n").append(myImage.width).append("\n").append(myImage.height).append("\n255\n");
         for (int i = 0; i < myImage.height; i++) {
             for (int j = 0; j < myImage.width; j++) {
-                dataStream.append("" + myImage.pixels[j][i].red + " " + myImage.pixels[j][i].green + " " + myImage.pixels[j][i].blue + "  ");
+                dataStream.append(myImage.pixels[j][i].red).append(" ").append(myImage.pixels[j][i].green).append(" ").append(myImage.pixels[j][i].blue).append("  ");
             }
             dataStream.append("\n");
         }

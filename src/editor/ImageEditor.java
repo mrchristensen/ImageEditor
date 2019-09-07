@@ -1,14 +1,12 @@
 package editor;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 
 public class ImageEditor {
 
-    public static void main(String args[]) throws IOException {
-        //Args
-        String inputFileName = args[0];
+    public static void main(String[] args) throws IOException {
+        String inputFileName = args[0]; //Args
         String outputFileName = args[1];
         String transform = args[2];
         int blurLength = 0;
@@ -16,9 +14,8 @@ public class ImageEditor {
             blurLength = Integer.parseInt(args[3]);
         }
 
-        //###
         for (int i = 0; i < args.length; i++) {
-            String message = String.format("Argument %d is %s", i, args[i]);
+            String message = String.format("args[%d] = %s", i, args[i]);
             System.out.println(message);
         }
 
@@ -30,7 +27,6 @@ public class ImageEditor {
 
         PPMImage myImage = new ReadClass().processFile(myFile); //Read
 
-        System.out.println(transform);
         switch(transform) { //Transform
             case "grayscale":
                 myImage = new Transformer().grayscale(myImage);
