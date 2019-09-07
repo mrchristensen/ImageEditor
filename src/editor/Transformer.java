@@ -33,6 +33,30 @@ public class Transformer {
     }
 
     public PPMImage motionBlur(PPMImage myImage, int blurLength) {
+        for (int i = 0; i < myImage.height; i++) {
+            for (int j = 0; j < myImage.width; j++) {
+                int numColorValues = 0;
+                int totalRedValues = 0;
+                int totalGreenValues = 0;
+                int totalBlueValues = 0;
+                int hPos = j;
+
+                while(hPos < myImage.width & hPos <= j+blurLength-1) { //Checks to make sure that we have more pixels to read and we haven't already hit our desired range
+                    numColorValues++;
+                    totalRedValues += myImage.pixels[hPos][i].red;
+                    totalGreenValues += myImage.pixels[hPos][i].green;
+                    totalBlueValues += myImage.pixels[hPos][i].blue;
+                    hPos++;
+                }
+
+                //Averages the pixels founds for each color
+                myImage.pixels[j][i].red = (totalRedValues / numColorValues);
+                myImage.pixels[j][i].green = (totalGreenValues / numColorValues);
+                myImage.pixels[j][i].blue = (totalBlueValues / numColorValues);
+            }
+        }
+
         return myImage;
     }
+
 }
