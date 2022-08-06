@@ -15,6 +15,8 @@ The emboss convertion is done by finding the largest difference in rgb values wi
 
 Motion Blur is achieved by averaging the samples surrounding pixel's rbg values.
 
+To see the implementation, see [ImageEditor.java](src/editor/ImageEditor.java) and [Transformer.java](/src/editor/Transformer.java).
+
 ## Examples
 
 For these examples, we'll be altering the penguin image:
