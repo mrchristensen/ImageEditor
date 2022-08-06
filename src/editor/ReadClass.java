@@ -9,7 +9,7 @@ class ReadClass {
     PPMImage processFile(File myFile) throws IOException {
 
         Scanner scanner = new Scanner(myFile);
-        scanner.useDelimiter("((#[^\\n]*\\n)|(\\s+))+");
+        scanner.useDelimiter("((#[^\\n]*\\n)|(\\s+))+"); //Remove comments
 
         String magicNumber = scanner.next(); //P3
         int width = Integer.parseInt(scanner.next()); //How many pixels wide
@@ -22,6 +22,7 @@ class ReadClass {
 
         int pixels = width * height * 3;
 
+        //Read in pixel information into PMMImage object
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 int r = Integer.parseInt(scanner.next());

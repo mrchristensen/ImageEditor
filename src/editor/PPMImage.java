@@ -1,7 +1,7 @@
 package editor;
 
 class PPMImage {
-    private String pValue;
+    String pValue;
     int width;
     int height;
     int maxColor;

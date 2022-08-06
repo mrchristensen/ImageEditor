@@ -10,7 +10,8 @@ public class ImageEditor {
         String outputFileName = args[1];
         String transform = args[2];
         int blurLength = 0;
-        if (transform.equals("motionblur")) { //If motion blur is the transform we need the amount
+        //If motion blur is the transform we need the amount
+        if (transform.equals("motionblur")) {
             blurLength = Integer.parseInt(args[3]);
         }
 

@@ -104,7 +104,6 @@ class Transformer {
             System.out.println("findMaxDiff function in incomplete in it's cases\nx: " + Math.abs(x) + ", y: " + Math.abs(y) + ", z: " + Math.abs(z));
             return -1;
         }
-
     }
 
 }
